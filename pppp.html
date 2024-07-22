@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Blur Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Optional: For better contrast */
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('121.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: filter 0.5s ease; /* Smooth transition for the filter effect */
+        }
+
+        .text-container {
+            position: absolute;
+            left: 10%; /* Adjust the distance from the left as needed */
+            top: 50%;
+            transform: translateY(-50%); /* Center vertically */
+            text-align: left;
+            color: white;
+            z-index: 1; /* Ensure text and buttons are above the background */
+        }
+
+        .text {
+            font-size: 9em; /* Adjust the size as needed */
+            white-space: nowrap;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+            cursor: pointer;
+        }
+
+        .social-buttons {
+            margin-top: 1em; /* Space between text and buttons */
+            display: flex;
+            flex-direction: row; /* Arrange buttons in a row */
+            flex-wrap: wrap; /* Allow wrapping to multiple lines if necessary */
+            gap: 1em; /* Space between buttons */
+        }
+
+        .social-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: black;
+            padding: 0.75em; /* Padding for larger buttons */
+            text-decoration: none;
+            border-radius: 0.75em; /* Rounded corners */
+            font-size: 1.5em; /* Moderate icon size */
+            transition: background-color 0.3s ease;
+        }
+
+        .social-buttons a:hover {
+            background-color: #ddd; /* Light gray background on hover */
+        }
+
+        .additional-buttons {
+            margin-top: 3em; /* Space between rows */
+            display: flex;
+            flex-direction: row; /* Arrange buttons in a row */
+            gap: 1em; /* Space between buttons */
+            justify-content: center; /* Center align the buttons */
+        }
+
+ .additional-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Transparent background */
+    color: black; /* Text color */
+    width: 12em; /* Fixed width */
+    height: 3em; /* Fixed height */
+    text-decoration: none;
+    border-radius: 2em; /* High border-radius for rounded appearance */
+    border: 2px solid black; /* Black border */
+    font-size: 1.5em; /* Moderate icon size */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-align: center; /* Center text/icon */
+    line-height: 3em; /* Vertically center text/icon */
+}
+
+.additional-buttons a:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* Darker black background on hover */
+    border-color: transparent; /* Ensure border does not change on hover */
+}
+
+
+
+
+        /* Style for blurred background */
+        .blurred {
+            filter: blur(10px); /* Adjust the blur amount as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="text-container">
+        <div class="text" onmouseover="blurBackground()" onmouseout="resetBackground()">
+            Praveen<br>Kekulandala
+        </div>
+        <div class="social-buttons">
+            <a href="https://www.linkedin.com/in/praveen-kakulandala-623103255/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/PraveenKakulandala" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://https://x.com/Praveen_15962" target="_blank" aria-label="Twitter">
+                <i class="fab fa-x"></i>
+            </a>
+            <a href="mailto:praveenkekulandala@gmail.com" aria-labeal="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <div class="additional-buttons">
+            <a href="https://your-project-page.com" target="_blank" aria-label="Project">
+                 Project
+            </a>
+            <a href="https://your-about-me-page.com" target="_blank" aria-label="About Me">
+                 About Me
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function blurBackground() {
+            document.querySelector('.background').classList.add('blurred');
+        }
+
+        function resetBackground() {
+            document.querySelector('.background').classList.remove('blurred');
+        }
+    </script>
+</body>
+</html>
